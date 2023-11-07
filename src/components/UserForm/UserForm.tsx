@@ -1,5 +1,5 @@
-import {User, UserMutation} from '../../types';
 import React, {useState} from 'react';
+import {User, UserMutation} from '../../types';
 
 interface Props {
   onSubmit: (user: User) => void;
@@ -70,7 +70,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           value={user.role}
           onChange={changeUser}
           className="form-select">
-          <option>Select value</option>
+          <option disabled>Select value</option>
           <option value="user">user</option>
           <option value="editor">editor</option>
           <option value="admin">admin</option>
