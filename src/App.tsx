@@ -7,14 +7,13 @@ import {useState} from 'react';
 const App = () => {
   const [users, setUsers] = useState<User[]>([
     {id: '1', name: 'John', email: 'john@doe.com', role: 'admin', status: false},
-    {id: '2', name: 'Jane', email: 'jane@jane.com', role: 'user', status: false},
+    {id: '2', name: 'Jane', email: 'jane@jane.com', role: 'user', status: true},
     {id: '3', name: 'Jim', email: 'jim@jim.com', role: 'user', status: false},
   ]);
   
   const addUser = (user: User) => {
     setUsers((prevState) => [...prevState, user]);
   };
-  
   
   return (
     <>
@@ -32,7 +31,7 @@ const App = () => {
         </div>
       </main>
     </>
-    );
+  );
 };
 
 export default App;

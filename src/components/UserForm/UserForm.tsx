@@ -10,8 +10,9 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
     name: '',
     email: '',
     role: '',
-    status: false,
   });
+  
+  const [isActive, setIsActive] = useState<boolean>(false);
   
   const changeUser = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setUser((prev) => (
@@ -21,11 +22,16 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
     ));
   };
   
+  const checkStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsActive(e.target.checked);
+  };
+  
   const onFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit({
       id: Math.random().toString(),
       ...user,
+      status: isActive,
     });
   };
   
@@ -64,6 +70,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           value={user.role}
           onChange={changeUser}
           className="form-select">
+          <option>Select value</option>
           <option value="user">user</option>
           <option value="editor">editor</option>
           <option value="admin">admin</option>
@@ -74,8 +81,8 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           type="checkbox"
           name="status"
           id="status"
-          checked={user.status}
-          onChange={changeUser}
+          checked={isActive}
+          onChange={checkStatus}
           className="form-check-input"
         />
         <label className="form-check-label ms-2" htmlFor="status">Status</label>
