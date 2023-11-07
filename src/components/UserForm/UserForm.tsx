@@ -10,7 +10,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
     name: '',
     email: '',
     role: '',
-    isActive: false,
+    status: false,
   });
   
   const changeUser = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -41,6 +41,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           value={user.name}
           onChange={changeUser}
           className="form-control"
+          required
         />
       </div>
       <div className="form-group mt-3 mb-1">
@@ -52,6 +53,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           value={user.email}
           onChange={changeUser}
           className="form-control"
+          required
         />
       </div>
       <div className="form-group mt-3 mb-1">
@@ -62,7 +64,6 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           value={user.role}
           onChange={changeUser}
           className="form-select">
-          <option selected>Select role</option>
           <option value="user">user</option>
           <option value="editor">editor</option>
           <option value="admin">admin</option>
@@ -73,10 +74,11 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           type="checkbox"
           name="status"
           id="status"
-          checked={user.isActive}
+          checked={user.status}
+          onChange={changeUser}
           className="form-check-input"
         />
-        <label className="form-check-label ms-2" htmlFor="status">Active</label>
+        <label className="form-check-label ms-2" htmlFor="status">Status</label>
       </div>
       <button type="submit" className="btn btn-primary mt-3 w-100">Add user</button>
     </form>

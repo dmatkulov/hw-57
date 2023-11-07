@@ -6,9 +6,9 @@ import {useState} from 'react';
 
 const App = () => {
   const [users, setUsers] = useState<User[]>([
-    {id: '1', name: 'John', email: 'john@doe.com', role: 'admin', isActive: false},
-    {id: '2', name: 'Jane', email: 'jane@jane.com', role: 'user', isActive: false},
-    {id: '3', name: 'Jim', email: 'jim@jim.com', role: 'user', isActive: false},
+    {id: '1', name: 'John', email: 'john@doe.com', role: 'admin', status: false},
+    {id: '2', name: 'Jane', email: 'jane@jane.com', role: 'user', status: false},
+    {id: '3', name: 'Jim', email: 'jim@jim.com', role: 'user', status: false},
   ]);
   
   const addUser = (user: User) => {
@@ -26,7 +26,7 @@ const App = () => {
           <div className="col-4">
             <UserForm onSubmit={addUser}/>
           </div>
-          <div className="col-auto">
+          <div className="col-8">
             <Users users={users}/>
           </div>
         </div>
