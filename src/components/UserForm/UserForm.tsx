@@ -85,7 +85,7 @@ const UserForm: React.FC<Props> = ({onSubmit}) => {
           onChange={checkStatus}
           className="form-check-input"
         />
-        <label className="form-check-label ms-2" htmlFor="status">Status</label>
+        <label className="form-check-label ms-2" htmlFor="status">Online</label>
       </div>
       <button type="submit" className="btn btn-primary mt-3 w-100">Add user</button>
     </form>
